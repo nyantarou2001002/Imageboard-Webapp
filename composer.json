@@ -1,0 +1,19 @@
+{
+    "name": "itokotaro/image-webapp",
+    "description": "A web application for anonymous image board and discussion threads.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Itokotaro\\ImageWebapp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kotaro Ito",
+            "email": "nyarukotaro_65005@icloud.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
