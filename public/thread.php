@@ -19,6 +19,11 @@ if (!$thread) {
 }
 
 $replies = $postDAO->getReplies($thread, 0, 100);
+
+usort($replies, function ($a, $b) {
+    return strtotime($b->getCreatedAt()) - strtotime($a->getCreatedAt());
+});
+
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +36,8 @@ $replies = $postDAO->getReplies($thread, 0, 100);
 </head>
 
 <body>
-    <h1><?= htmlspecialchars($thread->getSubject()) ?></h1>
-    <p><?= htmlspecialchars($thread->getContent()) ?></p>
+    <h1>件名 : <?= htmlspecialchars($thread->getSubject()) ?></h1>
+    <p>コメント : <?= htmlspecialchars($thread->getContent()) ?></p>
 
     <?php if (!empty($thread->getImagePath()) && file_exists(__DIR__ . '/../public/uploads/' . basename($thread->getImagePath()))): ?>
         <img src="uploads/<?= htmlspecialchars(basename($thread->getImagePath())) ?>" alt="スレッド画像" style="max-width: 300px;">
@@ -44,7 +49,7 @@ $replies = $postDAO->getReplies($thread, 0, 100);
     <div id="replies">
         <?php foreach ($replies as $reply): ?>
             <div class="reply">
-                <p><?= htmlspecialchars($reply->getContent()) ?></p>
+                <p>匿名 : <?= htmlspecialchars($reply->getContent()) ?></p>
                 <?php if (!empty($reply->getImagePath()) && file_exists(__DIR__ . '/../public/uploads/' . basename($reply->getImagePath()))): ?>
                     <img src="uploads/<?= htmlspecialchars(basename($reply->getImagePath())) ?>" alt="返信画像" style="max-width: 150px;">
                 <?php endif; ?>
