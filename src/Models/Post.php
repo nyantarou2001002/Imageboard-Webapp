@@ -44,7 +44,7 @@ class Post
 
     public function getImagePath(): ?string
     {
-        return $this->imagePath;
+        return $this->imagePath ?: null;
     }
 
     public function getCreatedAt(): string
@@ -74,7 +74,7 @@ class Post
 
     public function setImagePath(?string $imagePath): void
     {
-        $this->imagePath = $imagePath;
+        $this->imagePath = $imagePath ?? '';
     }
 
     public function setCreatedAt(string $createdAt): void

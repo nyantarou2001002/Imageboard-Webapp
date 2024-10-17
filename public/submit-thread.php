@@ -86,16 +86,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>新しいスレッドを作成</h1>
 
     <form action="submit-thread.php" method="post" enctype="multipart/form-data">
-        <label for="subject">件名 (任意):</label>
-        <input type="text" name="subject" id="subject">
+        <label for="subject">件名:</label>
+        <input type="text" name="subject" id="subject" required>
         <br><br>
 
         <label for="content">投稿内容:</label>
-        <textarea name="content" id="content" placeholder="投稿内容を入力してください"></textarea>
+        <textarea name="content" id="content" placeholder="投稿内容を入力してください" required></textarea>
         <br><br>
 
-        <label for="image">画像 (任意):</label>
-        <input type="file" name="image" id="image">
+        <label for="image">画像:</label>
+        <input type="file" name="image" id="image" required>
         <br><br>
 
         <button type="submit">スレッド作成</button>
