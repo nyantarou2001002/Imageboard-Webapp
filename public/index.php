@@ -70,7 +70,7 @@ usort($threads, function ($a, $b) {
                         ) ?>
                     </a>
                 </h3>
-                <p>投稿内容 : <?= htmlspecialchars(
+                <p>コメント : <?= htmlspecialchars(
                                 $thread->getContent() ?? '',
                                 ENT_QUOTES,
                                 'UTF-8'
