@@ -12,7 +12,13 @@ use Itokotaro\ImageWebapp\MySQLWrapper;
 use Itokotaro\ImageWebapp\Database\DataAccess\PostDAOImpl;
 
 // データベース接続の設定
-$dbWrapper = new MySQLWrapper('127.0.0.1', '3307', 'imageboard', 'root', 'password');
+$dbWrapper = new MySQLWrapper(
+    '127.0.0.1',
+    '3307',
+    'imageboard',
+    'root',
+    'password'
+);
 $pdo = $dbWrapper->getConnection();
 
 // DAOの初期化
@@ -31,34 +37,60 @@ usort($threads, function ($a, $b) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
     <title>イメージボード</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome の読み込み -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-lZN37fQIK6y1rZ0GTC2V5iA8xWAtR1xgiRG/9rHBlnT6jDh7U/9S93J6X+YCFdfA"
+        crossorigin="anonymous">
 </head>
 
 <body>
     <h1>イメージボード</h1>
+    <hr>
 
     <!-- スレッド作成リンク -->
     <a href="submit-thread.php">新しいスレッドを作成</a>
 
     <!-- スレッド一覧表示 -->
     <h2>スレッド一覧</h2>
+    <hr>
     <div id="threads">
         <?php foreach ($threads as $thread): ?>
             <div class="thread">
-                <h3><a href="thread.php?id=<?= $thread->getId() ?>">
-                        <?= htmlspecialchars($thread->getSubject() ?? '', ENT_QUOTES, 'UTF-8') ?>
-                    </a></h3>
-                <p><?= htmlspecialchars($thread->getContent() ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+                <h3>匿名<br>
+                    件名：<a href="thread.php?id=<?= $thread->getId() ?>">
+                        <?= htmlspecialchars(
+                            $thread->getSubject() ?? '',
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>
+                    </a>
+                </h3>
+                <p>投稿内容 : <?= htmlspecialchars(
+                                $thread->getContent() ?? '',
+                                ENT_QUOTES,
+                                'UTF-8'
+                            ) ?></p>
 
                 <!-- スレッドの画像表示 -->
                 <?php
                 $imagePath = $thread->getImagePath();
                 if (!empty($imagePath)) {
                     $imageBaseName = basename($imagePath);
-                    $thumbnailPath = 'thumbnails/' . htmlspecialchars($imageBaseName, ENT_QUOTES, 'UTF-8');
-                    $fullImagePath = 'uploads/' . htmlspecialchars($imageBaseName, ENT_QUOTES, 'UTF-8');
+                    $thumbnailPath = 'thumbnails/' . htmlspecialchars(
+                        $imageBaseName,
+                        ENT_QUOTES,
+                        'UTF-8'
+                    );
+                    $fullImagePath = 'uploads/' . htmlspecialchars(
+                        $imageBaseName,
+                        ENT_QUOTES,
+                        'UTF-8'
+                    );
                     $fullImageServerPath = __DIR__ . '/uploads/' . $imageBaseName;
 
                     if (file_exists($fullImageServerPath)) {
@@ -76,19 +108,34 @@ usort($threads, function ($a, $b) {
                 <div class="replies">
                     <h4>最新の返信:</h4>
                     <?php
-                    $latestReplies = $postDAO->getLatestReplies($thread->getId(), 5);
+                    $latestReplies = $postDAO->getLatestReplies(
+                        $thread->getId(),
+                        5
+                    );
                     foreach ($latestReplies as $reply):
                     ?>
                         <div class="reply">
-                            <p><?= htmlspecialchars($reply->getContent() ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+                            <p>匿名 : <?= htmlspecialchars(
+                                        $reply->getContent() ?? '',
+                                        ENT_QUOTES,
+                                        'UTF-8'
+                                    ) ?></p>
 
                             <!-- 返信の画像表示 -->
                             <?php
                             $replyImagePath = $reply->getImagePath();
                             if (!empty($replyImagePath)) {
                                 $replyImageBaseName = basename($replyImagePath);
-                                $replyThumbnailPath = 'thumbnails/' . htmlspecialchars($replyImageBaseName, ENT_QUOTES, 'UTF-8');
-                                $replyFullImagePath = 'uploads/' . htmlspecialchars($replyImageBaseName, ENT_QUOTES, 'UTF-8');
+                                $replyThumbnailPath = 'thumbnails/' . htmlspecialchars(
+                                    $replyImageBaseName,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                );
+                                $replyFullImagePath = 'uploads/' . htmlspecialchars(
+                                    $replyImageBaseName,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                );
                                 $replyFullImageServerPath = __DIR__ . '/uploads/' . $replyImageBaseName;
 
                                 if (file_exists($replyFullImageServerPath)) {
@@ -99,9 +146,11 @@ usort($threads, function ($a, $b) {
                             }
                             ?>
                         </div>
+
                     <?php endforeach; ?>
                 </div>
             </div>
+            <hr>
         <?php endforeach; ?>
     </div>
 </body>
