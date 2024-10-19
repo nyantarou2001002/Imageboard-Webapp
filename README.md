@@ -45,6 +45,8 @@ https://github.com/user-attachments/assets/93e3b7f9-b55f-49a7-beeb-3131e4965785
 | 投稿内容 | コメントを入力 |
 | 画像 | 投稿したい画像をファイルを選択(png, jpeg, gif に対応) |
 
+# ER図
+
 
 # 使用技術
 - PHP
