@@ -36,7 +36,11 @@ https://github.com/user-attachments/assets/93e3b7f9-b55f-49a7-beeb-3131e4965785
 
 # 使い方
 - スレッドの作成
-ホームページから各入力欄を入力してください
+ホームページからスレッドを作成ボタンをクリックし各入力欄を入力してください
+![スクリーンショット 2024-10-19 18 16 54](https://github.com/user-attachments/assets/11d92ba5-a5b3-4d09-896b-5d5e9d3f1bea)
+
+
+
 
 
 | 入力項目 | 内容 |
