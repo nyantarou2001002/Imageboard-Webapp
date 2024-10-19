@@ -40,4 +40,13 @@ https://github.com/user-attachments/assets/93e3b7f9-b55f-49a7-beeb-3131e4965785
 
 
 
+# 使用技術
+- PHP
+- MySQL
+- HTML
+- CSS
+- Javascript
+- Amazon EC2
+- Amazon RDB
+- NGINX
 
