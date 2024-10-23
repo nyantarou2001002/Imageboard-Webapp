@@ -71,7 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("エラー: スレッド作成中に問題が発生しました: " . $e->getMessage());
     }
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -80,28 +82,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新しいスレッドを作成</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h1>新しいスレッドを作成</h1>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-6">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h1 class="text-2xl font-bold mb-6 text-center">新しいスレッドを作成</h1>
 
-    <form action="submit-thread.php" method="post" enctype="multipart/form-data">
-        <label for="subject">件名:</label>
-        <input type="text" name="subject" id="subject" required>
-        <br><br>
+            <form action="submit-thread.php" method="post" enctype="multipart/form-data" class="space-y-6">
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">件名:</label>
+                    <input type="text" name="subject" id="subject" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                </div>
 
-        <label for="content">投稿内容:</label>
-        <textarea name="content" id="content" placeholder="投稿内容を入力してください" required></textarea>
-        <br><br>
+                <div>
+                    <label for="content" class="block text-sm font-medium text-gray-700">投稿内容:</label>
+                    <textarea name="content" id="content" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="投稿内容を入力してください" required></textarea>
+                </div>
 
-        <label for="image">画像:</label>
-        <input type="file" name="image" id="image" required>
-        <br><br>
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700">画像:</label>
+                    <input type="file" name="image" id="image" class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                </div>
 
-        <button type="submit">スレッド作成</button>
-    </form>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">スレッド作成</button>
+                </div>
+            </form>
 
-    <a href="index.php">戻る</a>
+            <div class="mt-6 text-center">
+                <a href="index.php" class="inline-block text-gray-500 hover:text-gray-700">戻る</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
