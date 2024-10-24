@@ -84,6 +84,7 @@ https://github.com/user-attachments/assets/dc189f2a-d022-49d4-926d-bec7864f97b4
 - MySQL
 - HTML
 - CSS
+- TailwindCSS
 - Javascript
 - Amazon EC2
 - Amazon RDB
