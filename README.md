@@ -68,7 +68,8 @@ https://github.com/user-attachments/assets/dc189f2a-d022-49d4-926d-bec7864f97b4
 
 ## スレッド一覧ページ
 
-![スクリーンショット 2024-10-19 18 26 40](https://github.com/user-attachments/assets/6aa08c8e-ecf5-497f-a112-f6ea4943598d)
+![スクリーンショット 2024-10-24 15 48 20](https://github.com/user-attachments/assets/99216deb-7f9f-48f1-83d9-c028396113e1)
+
 
 このページでは今までに作られたスレッドの一覧を見ることができます。
 それぞれのスレッドにはそのスレッドへの最新の返信が最大５個表示されています。
