@@ -47,7 +47,8 @@ https://github.com/user-attachments/assets/dc189f2a-d022-49d4-926d-bec7864f97b4
 # 使い方
 ## スレッドの作成
 ホームページから新しいスレッドを作成ボタンをクリックし各入力欄を入力してください
-<img width="1440" alt="スクリーンショット 2024-10-24 15 48 20" src="https://github.com/user-attachments/assets/dc1e23eb-a308-46a8-91ef-81436de01baa">
+![スクリーンショット 2024-10-24 15 51 44](https://github.com/user-attachments/assets/4406a107-7b04-4bab-9a2a-67af2acbdf0e)
+
 
 
 | 入力項目 | 内容 |
